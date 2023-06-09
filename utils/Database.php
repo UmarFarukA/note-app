@@ -9,8 +9,8 @@ use PDOException;
 class Database
 {
 
-    public $pdo;
-    public $stm;
+    protected $pdo;
+    protected $stm;
 
     function __construct($config)
     {

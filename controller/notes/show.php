@@ -4,7 +4,7 @@ use utils\App;
 
 $db = App::resolve('utils\Database');
 
-$currentUserId = 1;
+$currentUserId = 5;
 
 
 

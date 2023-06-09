@@ -9,7 +9,7 @@ $heading = "Create Note";
 $errors = [];
 
 
-$id = 3;
+$id = 5;
 
 if (!Validator::string($_POST["slug"], 5, 20)) {
     $errors['slug'] = "Note slug is required & must not be more than 25 characters";
