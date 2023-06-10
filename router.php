@@ -30,7 +30,7 @@ $router->post('/register', 'controller/registration/store.php');
 
 //Login path
 $router->get('/login', 'controller/session/create.php');
-$router->post('/login', 'controller/session/store.php');
+$router->post('/session', 'controller/session/store.php');
 
 //Logout
-$router->post('/logout', 'controller/session/destroy.php');
+$router->delete('/session', 'controller/session/destroy.php');

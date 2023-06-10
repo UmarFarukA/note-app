@@ -69,3 +69,22 @@ function abort($code = 404)
     require base_path("views/{$code}.php");
     die();
 }
+
+function login($user)
+{
+    $_SESSION['user'] = [
+        'email' => $user['email']
+    ];
+    header('location: /');
+
+    session_regenerate_id(true);
+}
+
+function logout()
+{
+    $_SESSION = [];
+    session_destroy();
+    // setcookie("PHPSESSION", "", time() - 3600, "");
+    header("location: /");
+    exit();
+}
