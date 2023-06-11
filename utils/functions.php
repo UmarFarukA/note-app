@@ -70,21 +70,8 @@ function abort($code = 404)
     die();
 }
 
-function login($user)
+function redirect($path)
 {
-    $_SESSION['user'] = [
-        'email' => $user['email']
-    ];
-    header('location: /');
-
-    session_regenerate_id(true);
-}
-
-function logout()
-{
-    $_SESSION = [];
-    session_destroy();
-    // setcookie("PHPSESSION", "", time() - 3600, "");
-    header("location: /");
+    header("location: {$path}");
     exit();
 }
