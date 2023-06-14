@@ -3,6 +3,7 @@
 use utils\App;
 use Http\Form\LoginForm;
 use utils\Authenticator;
+use utils\Session;
 
 $db = App::resolve('utils\Database');
 
@@ -30,22 +31,13 @@ if (empty($form->validate($email, $password))) {
     );
 }
 
-return view(
-    'session/login.view.php',
+Session::flash("errors", $form->getErrors());
+
+Session::flash(
+    "old",
     [
-        'errors' => $form->getErrors()
+        "email" => $_POST['email']
     ]
 );
 
-
-
-
-// } else {
-//     return view(
-//         'session/login.view.php',
-//         [
-//             'errors' => 'No matching credentials found!'
-//         ]
-//     );
-//     exit();
-// }
+return redirect('/login');

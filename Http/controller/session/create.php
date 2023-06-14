@@ -1,3 +1,10 @@
 <?php
 
-return view('session/login.view.php');
+use utils\Session;
+
+return view(
+    'session/login.view.php',
+    [
+        "errors" => Session::get("errors")
+    ]
+);

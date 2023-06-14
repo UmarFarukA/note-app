@@ -31,7 +31,7 @@ function sanitizeFields($value)
 }
 
 /**
- * This function return the path the 
+ * This function return the path, the 
  * absolute path of a fille
  * @param: path - filename
  */
@@ -74,4 +74,9 @@ function redirect($path)
 {
     header("location: {$path}");
     exit();
+}
+
+function old($key, $default = "")
+{
+    return utils\Session::get('old')[$key] ?? $default;
 }
